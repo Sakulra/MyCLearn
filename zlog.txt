@@ -1,0 +1,34 @@
+1.编译过程
+    预处理源代码使用-E选项，生成.i文件
+    g++ -E helloworld.cpp -o hello.i
+    编译.i文件使用-S选项，生成.s文件,汇编语言
+    g++ -S hello.i -o hello.s
+    汇编.s文件使用-c选项，生成.o文件
+    g++ -c hello.s -o hello.o
+    链接.o文件无需使用选项，生成.exe文件
+    g++ hello.o -o hello
+  重要编译参数
+    -g 产生带调试信息的可执行文件 
+    g++ -g helloworld.cpp
+    -O[n] n为0、1(默认)、2、3优化源代码，如省略未使用过的变量、将常量表达式用结果值代替等
+    g++ -O2 helloworld.cpp
+    -I 指定头文件搜索目录
+    g++ -I/myinclude helloworld.cpp
+2.for和while的优缺点
+    for适合已知循环次数、局部变量控制、更紧凑的语法；灵活性较低
+    while适合未知循环次数、更灵活的条件控制、更简洁的无限循环；循环变量需手动控制
+3.cin输入字符串时，遇到空格就停止。
+4.本地文件同步到github上
+    初始化本地仓库
+    git init
+    添加所有文件到暂存区
+    git add .
+    提交文件
+    git commit -m "initial commit"
+    添加远程仓库
+    git remote add origin 仓库地址
+    验证远程仓库
+    git remote -v
+    推送代码
+    git push -u origin master
+5.
