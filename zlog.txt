@@ -31,4 +31,20 @@
     git remote -v
     推送代码
     git push -u origin master
-5.
+5.WSL
+  wsl --list --online 以查看可用发行版列表并运行
+  wsl --install -d <DistroName> 以安装发行版
+  wsl --install --web-download -d <DistroName> 下载发行版，然后再进行安装，而不是使用 Microsoft Store
+  wsl --install -d [发行版] 默认安装 Ubuntu，可以通过使用-d标志来更改这一点：
+  wsl --list --verbose 列出已安装的 Linux 发行版
+  wsl --location 指定要将 WSL 分发版安装到哪个文件夹
+  wsl --update 将 WSL 版本更新为最新版本
+  wsl --unregister <DistributionName> 注销和卸载 WSL 分发版
+  查找它的物理位置,Linux 下的软件、文档等放在一个虚拟磁盘里面,BasePath 就是它的物理位置:
+    Get-ChildItem "HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss" -Recurse
+    可使用导出/导入的方法进行迁移 
+    1.关闭所有 WSL 实例：wsl --shutdown
+    2.将指定发行版导出为 tar 包：wsl --export Ubuntu D:\path\backup\ubuntu-backup.tar
+    3.注销原有的发行版：wsl --unregister Ubuntu 
+    4.在新位置重新导入：wsl --import Ubuntu D:\new\wsl\location D:\path\backup\ubuntu-backup.tar --version 2
+6.oh-my-posh
