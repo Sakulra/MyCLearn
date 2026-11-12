@@ -14,6 +14,39 @@
     g++ -O2 helloworld.cpp
     -I 指定头文件搜索目录
     g++ -I/myinclude helloworld.cpp
+  编译环境MSYS32+MINGW64：
+    MINGW64(GCC)：
+      64 位 x86 编译环境。
+      使用传统 MSVCRT 运行库。
+      主要编译器：GCC（安装后提供 g++）。
+      适合需要兼容较老 Windows 的程序。
+    UCRT64(GCC):
+      64 位 x86 编译环境。
+      使用 UCRT 运行库。
+      主要编译器：GCC（安装后提供 g++）。
+      面向较新的 Windows 系统
+    CLANG64(Clang):
+      64 位 x86 编译环境。
+      使用 UCRT。
+      默认编译器：Clang / Clang++。
+      适合使用 LLVM 工具链的项目
+    CLANGARM64(Clang):
+      ARM64 架构编译环境。
+      面向 Windows ARM64 设备。
+      默认编译器：Clang / Clang++。
+      不适合直接编译给普通 x86-64 Windows 7 电脑运行的程序
+    MSYS(Unix 工具环境):
+      主要用于运行 Bash、Shell、Pacman 等工具。
+      不是面向原生 Windows 程序的主要 GCC 环境。
+      可以安装 MSYS 自身的 GCC，但生成的程序通常依赖 MSYS 运行环境。
+      
+    严格来说有三套可以使用 GCC/G++ 的环境，另外两套主要使用 Clang/Clang++
+    终端	  默认编译器	 是否有 g++	   目标架构
+    MSYS	    GCC	        有（安装后）	x86-64
+    MINGW64	    GCC	        有（安装后）	x86-64
+    UCRT64	    GCC	        有（安装后）	x86-64
+    CLANG64	    Clang	  默认是 clang++    x86-64
+    CLANGARM64	Clang	  默认是 clang++	ARM64
 2.for和while的优缺点
     for适合已知循环次数、局部变量控制、更紧凑的语法；灵活性较低
     while适合未知循环次数、更灵活的条件控制、更简洁的无限循环；循环变量需手动控制
@@ -48,3 +81,6 @@
     3.注销原有的发行版：wsl --unregister Ubuntu 
     4.在新位置重新导入：wsl --import Ubuntu D:\new\wsl\location D:\path\backup\ubuntu-backup.tar --version 2
 6.oh-my-posh
+安装：winget install JanDeDobbeleer.OhMyPosh -s winget --location D:\OhMyPosh
+更新：winget upgrade JanDeDobbeleer.OhMyPosh -s winget --location D:\OhMyPosh
+主题安装默认目录：C:\Program Files\WindowsApps\ohmyposh.cli_<版本>_x64__<hash>\themes
